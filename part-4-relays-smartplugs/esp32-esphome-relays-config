@@ -1,0 +1,41 @@
+esphome:
+  name: 4ch_relay
+  platform: ESP32
+  board: esp-wrover-kit
+
+wifi:
+  ssid: YOURSSID
+  password: YOURWIFIPASS
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "4Ch Relay Fallback Hotspot"
+    password: "eWgLvFlsWOAY"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+switch:
+  - platform: gpio
+    pin: 25
+    name: "Relay 1"
+    inverted: yes
+  - platform: gpio
+    pin: 26
+    name: "Relay 2"
+    inverted: yes
+  - platform: gpio
+    pin: 27
+    name: "Relay 3"
+    inverted: yes
+  - platform: gpio
+    pin: 33
+    name: "Relay 4"  
+    inverted: yes
