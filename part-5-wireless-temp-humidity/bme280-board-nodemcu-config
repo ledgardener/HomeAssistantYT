@@ -1,0 +1,51 @@
+esphome:
+  name: bme_board1
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: "YOUR_SSID"
+  password: "YOUR_PASSWORD"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Bme Board1 Fallback Hotspot"
+    password: "9GfOsqG31y0D"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+i2c:
+
+sensor:
+  - platform: bme280
+    temperature:
+      name: "2x2 Temp"
+      filters:
+        - offset: 0.0
+      oversampling: 16x
+    humidity:
+      name: "2x2 Humidity"
+      filters:
+        - offset: 0.0
+    address: 0x76
+    update_interval: 30s
+  - platform: bme280
+    temperature:
+      name: "2x2 Temp_2"
+      filters:
+        - offset: 0.4
+      oversampling: 16x
+    humidity:
+      name: "2x2 Humidity_2"
+      filters:
+        - offset: 4.0
+    address: 0x77
+    update_interval: 30s  
