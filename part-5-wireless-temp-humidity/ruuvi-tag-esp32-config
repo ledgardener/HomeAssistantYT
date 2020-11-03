@@ -1,0 +1,57 @@
+esphome:
+  name: ruuvis
+  platform: ESP32
+  board: esp-wrover-kit
+
+wifi:
+  ssid: "YOUR_SSID"
+  password: "YOUR_PASSWORD"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Ruuvis Fallback Hotspot"
+    password: "mOLYzlxjA3qy"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+esp32_ble_tracker:
+
+sensor:
+- platform: ruuvitag
+  mac_address: E5:1D:D6:92:D3:BC
+  humidity:
+    name: "Ruuvi Humidity 2x4"
+  temperature:
+    name: "Ruuvi Temp 2x4"
+  battery_voltage:
+    name: "Ruuvi Battery 2x4"
+  tx_power:
+    name: "Ruuvi TX 2x4"
+- platform: ruuvitag
+  mac_address: DA:6B:AF:DD:30:F0
+  humidity:
+    name: "Ruuvi Humidity 3x3"
+  temperature:
+    name: "Ruuvi Temp 3x3"
+  battery_voltage:
+    name: "Ruuvi Battery 3x3"
+  tx_power:
+    name: "Ruuvi TX 3x3"
+- platform: ruuvitag
+  mac_address: D6:FB:C7:28:50:EB
+  humidity:
+    name: "Ruuvi Humidity 4x4"
+  temperature:
+    name: "Ruuvi Temp 4x4"
+  battery_voltage:
+    name: "Ruuvi Battery 4x4"
+  tx_power:
+    name: "Ruuvi TX 4x4"    
